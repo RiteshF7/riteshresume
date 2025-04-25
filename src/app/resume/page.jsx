@@ -19,6 +19,8 @@ const ResumeHeader = ({userData}) => (
             <ContactItem icon={<Phone className="h-4 w-4 mr-2"/>} text={userData.phone}/>
             <ContactItem icon={<Github className="h-4 w-4 mr-2"/>} text={userData.github}/>
             <ContactItem icon={<Linkedin className="h-4 w-4 mr-2"/>} text={userData.linkedin}/>
+            <ContactItem icon={<MapPin className="h-4 w-4 mr-2"/>} text={userData.linkedin}/>
+
         </div>
     </div>
 );

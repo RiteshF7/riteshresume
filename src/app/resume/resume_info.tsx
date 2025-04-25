@@ -7,6 +7,7 @@ export const resumeInfo = {
   "phone": "(+91) 991-000-0163",
   "github": "github.com/riteshf7", 
   "linkedin": "www.linkedin.com/in/sohlot163",
+  "portfolio": "https://riteshf7.github.io/riteshportfolio/",
   "experience": [
     {
       "id": 1,
