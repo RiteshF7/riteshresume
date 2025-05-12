@@ -1,6 +1,6 @@
 export const resumeInfo = {
   "name": "Ritesh Singh",
-  "title": "Android & Flutter Developer",
+  "title": "Android Developer",
   "about": "Enthusiastic technology professional with over 6 years of experience seeking to leverage my expertise in innovative solutions. I am passionate about integrating new technologies to enhance efficiency and drive success. My goal is to contribute to a dynamic team where I can grow my skills and make a meaningful impact.",
   "location": "Gurgaon, Haryana- 122004, India",
   "email": "riteshf7@gmail.com",
