@@ -13,7 +13,7 @@ export const resumeInfo = {
       "id": 1,
       "title": "Co-Founder & Lead Developer",
       "company": "App for EMI Enforcement & Device Management",
-      "duration": "AUG 2023 – MAR 2025",
+      "duration": "AUG 2022 – MAR 2025",
       "points": [
         "Developed an Android application for device management upon EMI non-payment, utilizing Device Policy Manager API with MVVM architecture.",
         "Ensured maintainable and scalable code.",
@@ -27,7 +27,7 @@ export const resumeInfo = {
       "id": 2,
       "title": "SDE-2",
       "company": "Cashify.in",
-      "duration": "MAY 2021 – AUG 2023",
+      "duration": "MAY 2021 – AUG 2022",
       "points": [
         "Designed Android hardware tests for camera, speaker, mic, and display.",
         "Developed an app to detect front and back panel cracks.",

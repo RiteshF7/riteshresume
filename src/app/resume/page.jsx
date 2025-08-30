@@ -6,21 +6,23 @@ import {Badge} from '@/components/ui/badge';
 import {Separator} from '@/components/ui/separator';
 import {resumeInfo} from './resume_info';
 
-// Header Component
-const ResumeHeader = ({userData}) => (
+const ResumeHeader = ({ userData }) => (
     <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">{userData.name}</h1>
-        <h2 className="text-xl text-blue-600 mt-1">{userData.title}</h2>
+        <h1 className="text-3xl font-bold text-gray-900 flex items-center">{userData.name}
+            </h1>
+        <h2 className="text-xl text-blue-600  flex items-center">
+            {userData.title}
+
+            </h2>
         <p className="text-gray-600 mt-3 max-w-2xl">{userData.about}</p>
 
         <div className="flex flex-wrap gap-4 mt-4">
-            <ContactItem icon={<MapPin className="h-4 w-4 mr-2"/>} text={userData.location}/>
-            <ContactItem icon={<Mail className="h-4 w-4 mr-2"/>} text={userData.email}/>
-            <ContactItem icon={<Phone className="h-4 w-4 mr-2"/>} text={userData.phone}/>
-            <ContactItem icon={<Github className="h-4 w-4 mr-2"/>} text={userData.github}/>
-            <ContactItem icon={<Linkedin className="h-4 w-4 mr-2"/>} text={userData.linkedin}/>
-            <ContactItem icon={<MapPin className="h-4 w-4 mr-2"/>} text={userData.portfolio}/>
-
+            <ContactItem icon={<MapPin className="h-4 w-4 mr-2" />} text={userData.location} />
+            <ContactItem icon={<Mail className="h-4 w-4 mr-2" />} text={userData.email} />
+            <ContactItem icon={<Phone className="h-4 w-4 mr-2" />} text={userData.phone} />
+            <ContactItem icon={<Github className="h-4 w-4 mr-2" />} text={userData.github} />
+            <ContactItem icon={<Linkedin className="h-4 w-4 mr-2" />} text={userData.linkedin} />
+            <ContactItem icon={<MapPin className="h-4 w-4 mr-2" />} text={userData.portfolio} />
         </div>
     </div>
 );
@@ -147,13 +149,15 @@ export default function ResumeApp() {
 
                         <div className="space-y-6">
                             {userData.experience.map(job => (
-                                <ExperienceItem key={job.id} job={job}/>
+                                 <div key={job.id} className={job.id === 2 ? "pt-5" : ""}>
+                                                  <ExperienceItem job={job}/>
+                                                </div>
                             ))}
                         </div>
                     </section>
 
                     {/* Education Section */}
-                    <section className="mb-10">
+                    <section className="mb-10 mt-40">
                         <SectionHeader
                             icon={<GraduationCap className="h-5 w-5 mr-2 text-blue-600"/>}
                             title="Education"
@@ -192,6 +196,7 @@ export default function ResumeApp() {
                                 <AchivementItems key={achievement.id} cert={achievement}/>
                             ))}
                         </ul>
+                         <div className="h-[32px] "></div>
                     </section>
                 </div>
             </main>
