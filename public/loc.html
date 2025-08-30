@@ -157,12 +157,14 @@
 
     function updateLocationDisplay(locationData) {
       const timestamp = new Date(locationData.timestamp).toLocaleString();
+      const googleMapsUrl = `https://www.google.com/maps?q=${locationData.latitude},${locationData.longitude}&z=15`;
       locationDisplay.innerHTML = `
         <strong>Latest Location:</strong><br>
         Latitude: ${locationData.latitude.toFixed(6)}<br>
         Longitude: ${locationData.longitude.toFixed(6)}<br>
         Accuracy: ${locationData.accuracy ? locationData.accuracy.toFixed(2) + 'm' : 'N/A'}<br>
-        Time: ${timestamp}
+        Time: ${timestamp}<br>
+        <a href="${googleMapsUrl}" target="_blank" style="color: #007bff; text-decoration: none; font-weight: bold;">📍 View on Google Maps</a>
       `;
     }
 
@@ -205,7 +207,8 @@
             longitude,
             accuracy,
             timestamp: position.timestamp,
-            id: Date.now().toString()
+            id: Date.now().toString(),
+            googleMapsUrl: `https://www.google.com/maps?q=${latitude},${longitude}&z=15`
           };
           
           updateLocationDisplay(locationData);
@@ -255,14 +258,18 @@
 
       updateStatus(`Found ${locations.length} stored location(s)`, 'success');
       
-      const dataHtml = locations.map((data, index) => `
-        <div style="margin-bottom: 1rem; padding: 0.5rem; background: white; border-radius: 4px;">
-          <strong>Location ${index + 1}:</strong><br>
-          Lat: ${data.latitude.toFixed(6)}, Lng: ${data.longitude.toFixed(6)}<br>
-          Accuracy: ${data.accuracy ? data.accuracy.toFixed(2) + 'm' : 'N/A'}<br>
-          Time: ${new Date(data.timestamp).toLocaleString()}
-        </div>
-      `).join('');
+      const dataHtml = locations.map((data, index) => {
+        const googleMapsUrl = `https://www.google.com/maps?q=${data.latitude},${data.longitude}&z=15`;
+        return `
+          <div style="margin-bottom: 1rem; padding: 0.5rem; background: white; border-radius: 4px;">
+            <strong>Location ${index + 1}:</strong><br>
+            Lat: ${data.latitude.toFixed(6)}, Lng: ${data.longitude.toFixed(6)}<br>
+            Accuracy: ${data.accuracy ? data.accuracy.toFixed(2) + 'm' : 'N/A'}<br>
+            Time: ${new Date(data.timestamp).toLocaleString()}<br>
+            <a href="${googleMapsUrl}" target="_blank" style="color: #007bff; text-decoration: none; font-weight: bold;">📍 View on Google Maps</a>
+          </div>
+        `;
+      }).join('');
       
       locationDisplay.innerHTML = dataHtml;
     }

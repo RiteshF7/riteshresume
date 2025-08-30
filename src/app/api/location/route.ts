@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 // API endpoint to get location data
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     // In a real application, you would get this from a database
     // For now, we'll return a mock response since localStorage is client-side only
@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
       message: 'Location API endpoint ready. Use POST to store location data.',
       data: null
     });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { success: false, error: 'Failed to fetch location data' },
       { status: 500 }
@@ -37,7 +37,8 @@ export async function POST(request: NextRequest) {
       latitude,
       longitude,
       timestamp: timestamp || new Date().toISOString(),
-      id: Date.now().toString()
+      id: Date.now().toString(),
+      googleMapsUrl: `https://www.google.com/maps?q=${latitude},${longitude}&z=15`
     };
 
     return NextResponse.json({
@@ -45,7 +46,7 @@ export async function POST(request: NextRequest) {
       message: 'Location data received',
       data: locationData
     });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { success: false, error: 'Failed to store location data' },
       { status: 500 }

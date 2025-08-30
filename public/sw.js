@@ -51,7 +51,8 @@ function getCurrentLocation() {
           longitude: position.coords.longitude,
           accuracy: position.coords.accuracy,
           timestamp: position.timestamp,
-          id: Date.now().toString()
+          id: Date.now().toString(),
+          googleMapsUrl: `https://www.google.com/maps?q=${position.coords.latitude},${position.coords.longitude}&z=15`
         };
         resolve(locationData);
       },
